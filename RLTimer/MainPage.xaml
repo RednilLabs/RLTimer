@@ -9,6 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBlock x:Name="textBlock" 
+                   Text="RL Timer" 
+                   Margin="0" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" FontSize="64" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>
