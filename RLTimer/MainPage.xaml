@@ -12,11 +12,37 @@
         <FlyoutBase.AttachedFlyout>
             <TimePickerFlyout/>
         </FlyoutBase.AttachedFlyout>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
         <TextBlock x:Name="textBlock" 
+                   Grid.Row="0"
                    Text="RL Timer" 
                    Margin="0" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top" FontSize="64" HorizontalAlignment="Center"/>
-       
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="1">
+            <TextBox
+                x:Name="hoursTextBox"
+                InputScope="Number"
+                Margin="10"
+                />
+            <TextBox
+                x:Name="minutesTextBox"
+                InputScope="Number"
+                Margin="10"
+                />
+            <TextBox
+                x:Name="secondsTextBox"
+                InputScope="Number"
+                Margin="10"
+                />
+        </StackPanel>
+
     </Grid>
 </Page>
