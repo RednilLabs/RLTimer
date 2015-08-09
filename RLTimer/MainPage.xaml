@@ -16,33 +16,95 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+
         <TextBlock x:Name="textBlock" 
                    Grid.Row="0"
                    Text="RL Timer" 
                    Margin="0" 
                    TextWrapping="Wrap" 
-                   VerticalAlignment="Top" FontSize="64" HorizontalAlignment="Center"/>
+                   VerticalAlignment="Top" 
+                   FontSize="64" 
+                   HorizontalAlignment="Center"
+                   
+                   />
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Grid.Row="1">
-            <TextBox
-                x:Name="hoursTextBox"
-                InputScope="Number"
-                Margin="10"
+            <StackPanel Orientation="Vertical">
+                <TextBox
+                    x:Name="hoursTextBox"
+                    InputScope="Number"
+                    Margin="10" 
+                    LostFocus="hoursTextBox_LostFocus"  
+                    FontSize="64"
+                    GotFocus="hoursTextBox_GotFocus"
+                    Text="{Binding CurrentHoursText,UpdateSourceTrigger=PropertyChanged}"
                 />
-            <TextBox
-                x:Name="minutesTextBox"
-                InputScope="Number"
-                Margin="10"
+                <TextBlock 
+                    x:Name="hoursLabel"
+                    HorizontalAlignment="Center"
+                    Text="HH" 
+                    FontSize="28"   
+                    
                 />
-            <TextBox
+            </StackPanel>
+            <TextBlock
+                VerticalAlignment="Top"
+                Text=":" FontSize="96"/>
+            <StackPanel Orientation="Vertical">
+                <TextBox
+                    x:Name="minutesTextBox"
+                    InputScope="Number" 
+                    Margin="10" FontSize="64" LostFocus="minutesTextBox_LostFocus" GotFocus="minutesTextBox_GotFocus"                   
+                />
+                <TextBlock
+                    x:Name="minutesLabel"
+                    HorizontalAlignment="Center"
+                    Text="MM"
+                    FontSize="28"
+                />
+            </StackPanel>
+            <TextBlock
+                VerticalAlignment="Top"
+                Text=":" FontSize="96"/>
+            <StackPanel Orientation="Vertical">
+                <TextBox
                 x:Name="secondsTextBox"
                 InputScope="Number"
-                Margin="10"
+                Margin="10" FontSize="64" LostFocus="secondsTextBox_LostFocus" GotFocus="secondsTextBox_GotFocus"
                 />
+                <TextBlock
+                    x:Name="secondsLabel"
+                    HorizontalAlignment="Center"
+                    Text="SS"
+                    FontSize="28"
+                    />
+            </StackPanel>
+
+
         </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2">
+            <Button x:Name="startTimerButton" 
+                    Content="Start" 
+                    HorizontalAlignment="Center"  
+                    VerticalAlignment="Top" Click="startTimerButton_Click"/>
+            <Button x:Name="pauseTimerButton" 
+                    Content="Pause" 
+                    HorizontalAlignment="Center"  
+                    VerticalAlignment="Top"/>
+
+        </StackPanel>
+        
+
+
+
+
+
+
 
     </Grid>
 </Page>
